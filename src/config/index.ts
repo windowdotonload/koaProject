@@ -1,6 +1,14 @@
+interface Config {
+  env: string;
+  mock: boolean;
+  baseApi: string;
+  mockApi: string;
+}
+
 const env = import.meta.env.MODE || "prod";
+
 const EnvConfig = {
-  dev: {
+  development: {
     baseApi: "",
     mockApi: "https://www.fastmock.site/mock/e6fa0eabe0aba670d319a7d4cec85120/api",
   },
@@ -13,9 +21,10 @@ const EnvConfig = {
     mockApi: "https://www.fastmock.site/mock/e6fa0eabe0aba670d319a7d4cec85120/api",
   },
 };
-
-export default {
+const config: Config = {
   env,
   mock: true,
   ...EnvConfig[env],
 };
+
+export default config;
