@@ -7,7 +7,7 @@ interface Config {
 
 const env = import.meta.env.MODE || "prod";
 
-const EnvConfig = {
+const EnvConfig: Record<string, Pick<Config, "baseApi" | "mockApi">> = {
   development: {
     baseApi: "",
     mockApi: "https://www.fastmock.site/mock/e6fa0eabe0aba670d319a7d4cec85120/api",
