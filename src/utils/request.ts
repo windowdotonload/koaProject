@@ -1,3 +1,4 @@
+// @ts-ignore
 import config from "@/config/index";
 import axios from "axios";
 
