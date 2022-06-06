@@ -26,5 +26,5 @@ const config: Config = {
   mock: true,
   ...EnvConfig[env],
 };
-config.
+
 export default config;
