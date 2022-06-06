@@ -10,7 +10,7 @@ interface RequestParams {
 
 interface RequestFunc {
   (params: RequestParams): any;
-  get(val: any): void;
+  get(url: string, params: Record<string, any>): any;
 }
 
 const service = axios.create({
@@ -32,6 +32,6 @@ const request: RequestFunc = (params: RequestParams) => {
 };
 export default request;
 
-request.get = () => {
+request.get = (url: string, params: Record<string, any>) => {
   return "TODO";
 };
