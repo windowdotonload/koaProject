@@ -17,7 +17,7 @@ interface RequestFunc {
 }
 
 const service = axios.create({
-  baseURL: config.baseApi,
+  baseURL: config.env === "prod" ? config.baseApi : config.mock ? config.mockApi : config.baseApi,
   timeout: 8000,
 });
 
@@ -42,19 +42,14 @@ const request: RequestFunc = (reqParams: RequestParams) => {
     reqParams.data = { ...reqParams.params };
     reqParams.params = undefined;
   }
-  if (config.env === "prod") {
-    service.defaults.baseURL = config.baseApi;
-  } else {
-    service.defaults.baseURL = config.mock ? config.mockApi : config.baseApi;
-  }
-
-  return service(reqParams);
+  return service(reqParams).then((res) => Promise.resolve(res) as any);
 };
-export default request;
-
 request.get = (url: string, reqParams: Record<string, any>) => {
-  return service.get(url, { params: { ...reqParams } });
+  return service.get(url, { params: { ...reqParams } }).then((res) => {
+    return res;
+  });
 };
 request.post = (url: string, params: Record<string, any>) => {
   return service.post(url, params);
 };
+export default request;
