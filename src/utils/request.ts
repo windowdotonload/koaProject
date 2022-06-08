@@ -1,6 +1,7 @@
 // @ts-ignore
 import config from "@/config/index";
 import axios from "axios";
+import { ElMessage } from "element-plus";
 
 interface RequestParams {
   method: "get" | "post" | "put" | "delete" | "patch" | "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
@@ -25,7 +26,14 @@ service.interceptors.request.use((config) => {
 });
 
 service.interceptors.response.use((res) => {
-  return res;
+  if (res.status === 200 && res.data.code === 200) {
+    return res.data;
+  } else {
+    ElMessage({
+      message: "请稍后重试",
+      type: "warning",
+    });
+  }
 });
 
 const request: RequestFunc = (reqParams: RequestParams) => {
