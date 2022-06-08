@@ -11,9 +11,9 @@ interface RequestParams {
 }
 
 interface RequestFunc {
-  (params: RequestParams): any;
-  get(url: string, params: Record<string, any>): any;
-  post(url: string, params: Record<string, any>): any;
+  (params: RequestParams): Promise<any>;
+  get(url: string, params: Record<string, any>): Promise<any>;
+  post(url: string, params: Record<string, any>): Promise<any>;
 }
 
 const service = axios.create({
@@ -44,10 +44,10 @@ const request: RequestFunc = (reqParams: RequestParams) => {
   }
   return service(reqParams);
 };
-request.get = (url: string, reqParams: Record<string, any>) => {
+request.get = (url: string, reqParams?: Record<string, any>) => {
   return service.get(url, { params: { ...reqParams } });
 };
-request.post = (url: string, params: Record<string, any>) => {
+request.post = (url: string, params?: Record<string, any>) => {
   return service.post(url, params);
 };
 export default request;
