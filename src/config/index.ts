@@ -21,6 +21,7 @@ const EnvConfig: Record<string, Pick<Config, "baseApi" | "mockApi">> = {
     mockApi: "https://www.fastmock.site/mock/e6fa0eabe0aba670d319a7d4cec85120/api",
   },
 };
+
 const config: Config = {
   env,
   mock: true,
