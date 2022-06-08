@@ -42,12 +42,10 @@ const request: RequestFunc = (reqParams: RequestParams) => {
     reqParams.data = { ...reqParams.params };
     reqParams.params = undefined;
   }
-  return service(reqParams).then((res) => Promise.resolve(res) as any);
+  return service(reqParams);
 };
 request.get = (url: string, reqParams: Record<string, any>) => {
-  return service.get(url, { params: { ...reqParams } }).then((res) => {
-    return res;
-  });
+  return service.get(url, { params: { ...reqParams } });
 };
 request.post = (url: string, params: Record<string, any>) => {
   return service.post(url, params);

@@ -3,6 +3,7 @@ import App from "./App.vue";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import config from "./config";
+import "./utils/request";
 import request from "./utils/request";
 
 const app = createApp(App);
