@@ -4,7 +4,7 @@
       <span class="switch-flag"> {{ leftWidth == "5%" ? "》" : "《" }}</span>
     </div>
   </div>
-  <div class="content-container-right"></div>
+  <div class="content-container-right">11</div>
 </template>
 
 <script setup lang="ts">
@@ -26,6 +26,7 @@ const changeLeftWidth = () => {
   background: yellow;
 }
 .content-container-right {
+  transition: all 0.5s ease;
   width: 100%;
   padding-left: v-bind(leftWidth);
   background-color: beige;
