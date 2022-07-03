@@ -16,5 +16,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  build: {
+    rollupOptions: {
+      // https://rollupjs.org/guide/en/#outputmanualchunks
+      output: {
+        manualChunks: {
+          layout: ["./src/layout/index.vue"],
+        },
+      },
+    },
+  },
   plugins: [vue()],
 });
