@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", redirect: "/layout" },
+    { path: "/", redirect: "/login" },
     { path: "/layout", component: () => import("../layout/index.vue") },
   ],
 });
