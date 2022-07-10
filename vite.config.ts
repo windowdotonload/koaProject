@@ -22,6 +22,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           layout: ["./src/layout/index.vue"],
+          login: ["./src/views/Login/index.vue"],
         },
       },
     },
