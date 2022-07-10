@@ -4,6 +4,7 @@
   </div>
   <div class="login-box">
     <div class="nick-name">eyasAdmin</div>
+    <selectLanguage style="position: absolute; right: 10px; top: -20%" />
     <el-form :model="form" label-width="0px">
       <el-form-item> <el-input v-model="form.username" :placeholder="$t(`login['loginUserName']`)" /> </el-form-item>
       <el-form-item>
@@ -16,9 +17,8 @@
 
 <script setup lang="ts">
 import { ref, reactive, defineComponent } from "vue";
-import { useI18n } from "vue-i18n";
+import selectLanguage from "./changeLocale.vue";
 
-const { locale } = useI18n();
 const colors = ["#184C78", "#F2C12E", "#F2AE30", "#A64F03", "#593E25"];
 const form = reactive({
   username: "",
@@ -45,7 +45,7 @@ const form = reactive({
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   position: absolute;
-  width: 20%;
+  min-width: 20%;
   box-sizing: border-box;
   padding: 20px;
   background: rgb(217, 217, 217, 0.9);

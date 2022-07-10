@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
+</script>
 
 <template>
-  <router-view></router-view>
+  <el-config-provider :locale="{ locale: locale }">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
 
 <style>
