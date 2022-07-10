@@ -15,7 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, defineComponent } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
 const colors = ["#184C78", "#F2C12E", "#F2AE30", "#A64F03", "#593E25"];
 const form = reactive({
   username: "",
