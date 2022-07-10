@@ -5,13 +5,11 @@
   <div class="login-box">
     <div class="nick-name">eyasAdmin</div>
     <el-form :model="form" label-width="0px">
+      <el-form-item> <el-input v-model="form.username" :placeholder="$t(`login['loginUserName']`)" /> </el-form-item>
       <el-form-item>
-        <el-input v-model="form.username" placeholder="请输入用户名" />
+        <el-input v-model="form.username" :placeholder="$t(`login['loginPassWord']`)" />
       </el-form-item>
-      <el-form-item>
-        <el-input v-model="form.username" placeholder="请输入密码" />
-      </el-form-item>
-      <el-button type="primary" style="width: 100%">登录</el-button>
+      <el-button type="primary" style="width: 100%">{{ $t("login.loginEnter") }}</el-button>
     </el-form>
   </div>
 </template>
