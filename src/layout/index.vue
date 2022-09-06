@@ -1,10 +1,13 @@
 <template>
   <div class="sider-container-left">
     <div class="switch-btn" @click="changeLeftWidth">
-      <span class="switch-flag"> {{ leftWidth == "5%" ? "》" : "《" }}</span>
+      <span class="switch-flag">
+        <el-icon v-show="leftWidth == '5%'"><ArrowRightBold /></el-icon>
+        <el-icon v-show="!(leftWidth == '5%')"><ArrowLeftBold /></el-icon>
+      </span>
     </div>
   </div>
-  <div class="content-container-right">11</div>
+  <div class="content-container-right"></div>
 </template>
 
 <script setup lang="ts">

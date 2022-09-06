@@ -5,7 +5,12 @@ const { locale } = useI18n();
 
 <template>
   <el-config-provider :locale="{ locale: locale }">
-    <router-view></router-view>
+    <RouterView #default="{ Component }">
+      <Suspense>
+        <!-- 主要内容 -->
+        <component :is="Component"></component>
+      </Suspense>
+    </RouterView>
   </el-config-provider>
 </template>
 
